@@ -1,0 +1,62 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply transition-colors duration-300;
+  }
+
+  /* Light mode defaults */
+  body {
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  /* Dark mode overrides */
+  .dark body {
+    @apply bg-[#080d1a] text-slate-100;
+  }
+}
+
+/* Custom Glassmorphism & Utilities */
+.glass-card {
+  @apply bg-white/70 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200/80 dark:border-slate-800/80 shadow-xl transition-all duration-300;
+}
+
+.glass-card-hover {
+  @apply hover:border-cyan-500/40 hover:shadow-cyan-500/10 hover:-translate-y-1;
+}
+
+.glow-subtle-cyan {
+  box-shadow: 0 0 40px -10px rgba(6, 182, 212, 0.25);
+}
+
+.glow-subtle-emerald {
+  box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.25);
+}
+
+.text-gradient-cyan {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-teal-500 to-indigo-600 dark:from-cyan-400 dark:via-teal-300 dark:to-indigo-400;
+}
+
+.text-gradient-emerald {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 dark:from-emerald-400 dark:via-teal-300 dark:to-cyan-400;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-cyan-600;
+}
